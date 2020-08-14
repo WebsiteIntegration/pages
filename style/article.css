@@ -144,6 +144,6 @@ a {
     text-decoration: none;
 }
 
-img {
-    width: 1000px;
+.article img {
+    width: 800px;
 }
