@@ -1,0 +1,38 @@
+pre {
+    margin-left: 20px;
+}
+
+.code {
+    width: 1215px;
+    opacity: 1.0;
+    margin-left: 20px;
+    border: 2px solid;
+    border-radius:5px;
+    background-color: #F6F8FA;
+    color: #F6F8FA;
+}
+
+.cpp {
+    font-family: Consolas;
+    color: black;
+}
+
+.cpp .pertreatment {
+    font-family: Consolas;
+    color: #2B91AF;
+}
+
+.cpp .keyword {
+    font-family: Consolas;
+    color: #0000FF;
+}
+
+.cpp .another {
+    font-family: Consolas;
+    color: #A31515;
+}
+
+.cpp .notes {
+    font-family: Consolas;
+    color: #038103;
+}

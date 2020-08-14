@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../style/head.css">
+    <link rel="stylesheet" href="../../../style/background.css">
+    <link rel="stylesheet" href="../../../style/code.css">
+    <link rel="stylesheet" href="../../../style/article.css">
+    <link rel="stylesheet" href="../../../style/copy-protection.css">
+    <link rel="stylesheet" href="../../button.css"
+    <link rel="short icon" href="../../../pictures/head-portrait.jpg">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+                tex2jax: {inlineMath: [['$', '$']]},
+                messageStyle: "none"
+            });
+    </script>
+    <div class="head">
+        <ul>
+            <li><a href="https://a-littleluck.github.io/">首页 </a> </li>
+            <li><a href="https://a-littleluck.github.io/explanation/">题解</a></li>
+            <li><a href="https://a-littleluck.github.io/share/">分享</a></li>
+            <li><a href="https://a-littleluck.github.io/news">博主的新鲜事</a></li>
+            <li><a href="https://a-littleluck.github.io/about/">关于博主</a></li>
+        </ul>
+    </div>
+    <title>首页 A-LittleLuck's Blog</title>
+</head>
+
+<body>
+    <noscript> 
+        <iframe src="*.html"></iframe> 
+    </noscript>  
+    <script>
+        //禁用F12
+        window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+            // 判断是否按下F12，F12键码为123
+            if (event.keyCode == 123) {
+                event.preventDefault(); // 阻止默认事件行为
+                window.event.returnValue = false;
+            }
+        }
+    </script>
+    <script>
+        var threshold = 160; // 打开控制台的宽或高阈值
+        // 每秒检查一次
+        var check = setInterval(function () {
+            if (window.outerWidth - window.innerWidth > threshold ||
+                window.outerHeight - window.innerHeight > threshold) {
+                // 如果打开控制台，则刷新页面
+                window.location.reload();
+            }
+        }, 1000);
+    </script>
+    <div class="article">
+        <h1>AcWing 2.01背包问题&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.acwing.com/problem/content/2/"><button
+                    class="button">原题链接</button></a></h1>
+        <h5>2020年8月14日&nbsp;&nbsp;&nbsp;&nbsp;A-LittleLuck</h5>
+        <hr>
+        <p>
+            题目特点:每个物品只能用一次
+            <br>
+            $f[i][j]$:表示所有选法集合中,只从前$i$个物品中选,并且总体积$≤j$的选法的集合,它的值是这个集合中每一个选法的最大值.
+            <br>
+            状态转移方程
+            <br>
+            $f[i][j] = max(f[i-1][j], f[i-1][j-v[i]]+w[i])$
+            <br>
+            $f[i-1][j]$:不选第i个物品的集合中的最大值
+            <br>
+            $f[i-1][j-v[i]]+w[i]$:选第i个物品的集合,但是直接求不容易求所在集合的属性,这里迂回打击一下,先将第i个物品的体积减去,求剩下集合中选法的最大值.
+            <br>
+            因为每次$i$调用的都是$i-1$,可以正好覆盖,所以可以变成一维
+            <br>
+            $f[j] = max(f[j], f[j-v[i]]+w[i])$
+            <br>
+        </p>
+        <div class="code">
+            <pre><code class="cpp"><code class="pertreatment">#include &lt;bits/stdc++.h&gt;</code>
+<code class="keyword">using namespace std</code>;
+<code class="keyword">int </code>v[1001],w[1001],f[1001];
+<code class="keyword">int</code> <code class="another">main</code>()
+{
+    <code class="keyword">int</code> N,V;
+    <code class="keyword">cin</code>&gt;&gt;N&gt;&gt;V;
+    <code class="keyword">for</code>(<code class="keyword">int</code> i = 1;i &lt;= N;i ++)
+        <code class="keyword">cin</code>&gt;&gt;v[i]&gt;&gt;w[i];
+    <code class="keyword">for</code>(<code class="keyword">int</code> i = 1;i &lt;= N;i ++)
+        <code class="keyword">for</code>(<code class="keyword">int</code> j = V;j &gt;=v[i];j --)
+            f[j] = max(f[j],f[j - v[i]] + w[i]);
+    <code class="keyword">cout</code>&lt;&lt;f[V];
+    <code class="keyword">return</code> 0;
+}
+</code></pre>
+        </div>
+    </div>
+    <div style="color: #FFFFFF; font-weight: 100;">
+        ©A-LittleLuck 2020版权所有
+    </div>
+</body>
+
+</html>

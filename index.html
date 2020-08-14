@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/head.css">
+    <link rel="stylesheet" href="./style/background.css">
+    <link rel="stylesheet" href="./style/code.css">
+    <link rel="stylesheet" href="./style/article.css">
+    <link rel="stylesheet" href="./style/copy-protection.css">
+    <link rel="short icon" href="./pictures/head-portrait.jpg">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+                tex2jax: {inlineMath: [['$', '$']]},
+                messageStyle: "none"
+            });
+    </script>
+    <div class="head">
+        <ul>
+            <li><a href="https://a-littleluck.github.io/">首页 </a> </li>
+            <li><a href="https://a-littleluck.github.io/explanation/">题解</a></li>
+            <li><a href="https://a-littleluck.github.io/share/">分享</a></li>
+            <li><a href="https://a-littleluck.github.io/news">博主的新鲜事</a></li>
+            <li><a href="https://a-littleluck.github.io/about/">关于博主</a></li>
+        </ul>
+    </div>
+    <title>首页 A-LittleLuck's Blog</title>
+</head>
+
+<body>
+    <noscript> 
+        <iframe src="*.html"></iframe> 
+    </noscript>  
+    <script>
+        //禁用F12
+        window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+            // 判断是否按下F12，F12键码为123
+            if (event.keyCode == 123) {
+                event.preventDefault(); // 阻止默认事件行为
+                window.event.returnValue = false;
+            }
+        }
+    </script>
+    <script>
+        var threshold = 160; // 打开控制台的宽或高阈值
+        // 每秒检查一次
+        var check = setInterval(function () {
+            if (window.outerWidth - window.innerWidth > threshold ||
+                window.outerHeight - window.innerHeight > threshold) {
+                // 如果打开控制台，则刷新页面
+                window.location.reload();
+            }
+        }, 1000);
+    </script>
+    <a href="https://a-littleluck.github.io/explanation/AcWing/2">
+        <div class="article-card">
+            <h1>AcWing 2.01背包问题</h1>
+            <h5>2020年8月14日&nbsp;&nbsp;&nbsp;&nbsp;A-LittleLuck</h5>
+        </div>
+    </a>
+    <a href="https://a-littleluck.github.io/explanation/AcWing/1">
+        <div class="article-card">
+            <h1>AcWing 1.A+B</h1>
+            <h5>2020年8月13日&nbsp;&nbsp;&nbsp;&nbsp;A-LittleLuck</h5>
+        </div>
+    </a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="color: #FFFFFF; font-weight: 100;">
+        ©A-LittleLuck 2020版权所有
+    </div>
+    
+</body>
+
+</html>
